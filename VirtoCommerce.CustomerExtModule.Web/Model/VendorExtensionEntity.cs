@@ -86,7 +86,7 @@ namespace VirtoCommerce.CustomerExtModule.Web.Model
             // Here you can write code for custom mapping
             // supplier properties will be mapped in base method implementation by using value injection
             var retVal = base.ToModel(member) as VendorExtension;
-
+            
             return retVal;
         }
 
@@ -94,6 +94,9 @@ namespace VirtoCommerce.CustomerExtModule.Web.Model
         {
             var retVal = base.FromModel(member, pkMap) as VendorExtensionEntity;
             var vendor = member as VendorExtension;
+            retVal.AcctRep = 0;
+            retVal.LastUsed = DateTime.UtcNow;
+            retVal.AdminNotes = string.Empty;
 
             // Here you can write code for custom mapping
             // supplier properties will be mapped in base method implementation by using value injection

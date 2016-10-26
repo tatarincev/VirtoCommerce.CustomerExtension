@@ -21,12 +21,7 @@ namespace VirtoCommerce.CustomerExtModule.Web.Services
             :base(repositoryFactory, dynamicPropertyService, commerceService, securityService, eventPublisher)
         {
         }
-
-        public override Member[] GetByIds(string[] memberIds, string responseGroup = null, string[] memberTypes = null) {
-            var retVal = base.GetByIds(memberIds, responseGroup, memberTypes);
-
-            return retVal;
-        }
+              
 
         //Override this method you can use for search members you custom tables and columns
         protected override Expression<Func<MemberDataEntity, bool>> GetQueryPredicate(MembersSearchCriteria criteria)

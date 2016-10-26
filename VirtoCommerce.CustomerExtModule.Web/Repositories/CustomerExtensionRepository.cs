@@ -45,14 +45,7 @@ namespace VirtoCommerce.CustomerExtModule.Web.Repositories
             {
                 return GetAsQueryable<VendorExtensionEntity>();
             }
-        }
-
-        public override MemberDataEntity[] GetMembersByIds(string[] ids, string responseGroup = null, string[] memberTypes = null)
-        {
-            var retVal = base.GetMembersByIds(ids, responseGroup, memberTypes);
-            var vendors = VendorExtensions.Where(x => ids.Contains(x.Id)).ToArray();
-            return retVal;
-        }
+        }   
 
         #endregion
     }
