@@ -59,6 +59,11 @@ namespace VirtoCommerce.CustomerExtModule.Web
             AbstractTypeFactory<Member>.OverrideType<Vendor, VendorExtension>()
                                         .MapToType<VendorExtensionEntity>()
                                         .WithService(vendorExtModuleMemberservice);
+                                        
+             //Next lines replace service for other member types to vendorExtModuleMemberservice. This is to prevent the VendorExtension from the orginial CommerceMembersServiceImpl 
+            AbstractTypeFactory<Member>.OverrideType<Organization, Organization>().WithService(vendorExtModuleMemberservice).MapToType<OrganizationDataEntity>();
+            AbstractTypeFactory<Member>.OverrideType<Contact, Contact>().WithService(vendorExtModuleMemberservice).MapToType<ContactDataEntity>();
+            AbstractTypeFactory<Member>.OverrideType<Employee, Employee>().WithService(vendorExtModuleMemberservice).MapToType<EmployeeDataEntity>();
         }
 
         #endregion
